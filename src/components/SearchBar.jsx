@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { fetchWeatherByCity, fetchWeatherByCoords, fetchForecastByCity, fetchForecastByCoords, fetchAQI } from '../utils/api';
+import { fetchWeatherByCity, fetchWeatherByCoords, fetchForecastByCity, fetchForecastByCoords, fetchAQI, fetchAlerts } from '../utils/api';
 import { transformForecastData } from '../utils/helpers';
 import { UnitContext } from '../context/UnitContext';
 
@@ -18,7 +18,8 @@ const SearchBar = ({ setWeather, setForecast, setAqi, setAlerts, setLoading, set
       setForecast(transformForecastData(forecastRaw.list));
       const aqiRaw = await fetchAQI(weather.coord.lat, weather.coord.lon);
       setAqi(aqiRaw.list[0]?.main.aqi || null);
-      setAlerts([]);
+      const alerts = await fetchAlerts(weather.coord.lat, weather.coord.lon);
+      setAlerts(alerts);
     } catch (err) {
       setError("City not found or API error.");
       setWeather(null);
@@ -43,7 +44,8 @@ const SearchBar = ({ setWeather, setForecast, setAqi, setAlerts, setLoading, set
           setForecast(transformForecastData(forecastRaw.list));
           const aqiRaw = await fetchAQI(latitude, longitude);
           setAqi(aqiRaw.list[0]?.main.aqi || null);
-          setAlerts([]);
+          const alerts = await fetchAlerts(latitude, longitude);
+          setAlerts(alerts);
         } catch (err) {
           setError("Location error or API error.");
           setWeather(null);
@@ -69,14 +71,12 @@ const SearchBar = ({ setWeather, setForecast, setAqi, setAlerts, setLoading, set
         value={city}
         onChange={(e) => setCity(e.target.value)}
         placeholder="Enter city name"
-        className="flex-1 px-3 py-2 rounded border border-gray-300 focus:outline-none w-full"
+        className="flex-1 px-3 py-2 rounded border border-gray-300 focus:outline-none min-w-0"
       />
-      <div className="flex gap-2 w-full sm:w-auto">
-        <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded w-full sm:w-auto">Search</button>
-        <button type="button" onClick={handleGeolocation} className="px-4 py-2 bg-green-500 text-white rounded w-full sm:w-auto">Use My Location</button>
-      </div>
+      <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">Search</button>
+      <button type="button" onClick={handleGeolocation} className="px-4 py-2 bg-green-500 text-white rounded">Use My Location</button>
     </form>
   );
 };
 
-export default SearchBar;
+export default SearchBar; 

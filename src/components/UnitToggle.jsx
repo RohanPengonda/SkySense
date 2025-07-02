@@ -6,19 +6,18 @@ const UnitToggle = () => {
   const isCelsius = unit === "metric";
 
   return (
-    <div className="flex items-center">
-      <span className={`mr-2 text-sm font-semibold ${isCelsius ? 'text-blue-700' : 'text-gray-400'}`}>°C</span>
+    <div className="flex items-center gap-2">
+      <span className={`text-sm font-semibold ${isCelsius ? 'text-blue-900' : 'text-blue-800'}`}>°C</span>
       <button
-        type="button"
-        aria-label="Toggle temperature unit"
-        className={`relative w-12 h-7 rounded-full transition-colors duration-300 focus:outline-none ${isCelsius ? 'bg-blue-900' : 'bg-blue-800'}`}
         onClick={() => setUnit(isCelsius ? "imperial" : "metric")}
+        className={`relative w-12 h-6 rounded-full transition-colors duration-200 focus:outline-none ${isCelsius ? 'bg-blue-900' : 'bg-blue-800'}`}
+        aria-label="Toggle Celsius/Fahrenheit"
       >
         <span
-          className={`absolute top-1 left-1 w-5 h-5 rounded-full bg-white shadow transition-transform duration-300 ${isCelsius ? 'translate-x-0' : 'translate-x-5'}`}
+          className={`absolute left-1 top-1 w-4 h-4 rounded-full bg-white shadow transition-transform duration-200 ${isCelsius ? 'translate-x-0' : 'translate-x-6'}`}
         />
       </button>
-      <span className={`ml-2 text-sm font-semibold ${!isCelsius ? 'text-blue-700' : 'text-blue-900'}`}>°F</span>
+      <span className={`text-sm font-semibold ${!isCelsius ? 'text-blue-900' : 'text-blue-800'}`}>°F</span>
     </div>
   );
 };

@@ -7,7 +7,7 @@ import { UnitProvider } from './context/UnitContext'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <UnitProvider>
-      <App />
+    <App />
     </UnitProvider>
   </StrictMode>,
 )

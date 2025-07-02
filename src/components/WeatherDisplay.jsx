@@ -27,12 +27,12 @@ const WeatherDisplay = ({ weather }) => {
   const tempUnit = unit === "metric" ? "°C" : "°F";
   const windUnit = unit === "metric" ? "m/s" : "mph";
   return (
-    <div className="bg-white shadow-lg rounded-xl p-4 sm:p-6 mb-6 max-w-xs sm:max-w-3xl w-full mx-auto flex flex-col items-center">
-      <h2 className="text-xl sm:text-3xl font-extrabold mb-2 text-gray-800 text-center">{name}</h2>
+    <div className="bg-white shadow-lg rounded-xl p-4 sm:p-6 mb-6 w-full max-w-md mx-auto flex flex-col items-center">
+      <h2 className="text-xl sm:text-3xl font-extrabold mb-2 text-gray-800">{name}</h2>
       {getWeatherIcon(condition.main)}
       <div className="text-2xl sm:text-4xl font-bold mb-1 text-blue-600">{main ? Math.round(main.temp) : "-"}{tempUnit}</div>
-      <div className="capitalize text-base sm:text-lg text-gray-600 mb-2 text-center">{condition?.description || "-"}</div>
-      <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 text-gray-500 text-sm sm:text-base justify-center items-center">
+      <div className="capitalize text-base sm:text-lg text-gray-600 mb-2">{condition?.description || "-"}</div>
+      <div className="flex gap-4 sm:gap-6 text-gray-500 text-sm sm:text-base">
         <span>Humidity: {main?.humidity ?? "-"}%</span>
         <span>Wind: {wind?.speed ?? "-"} {windUnit}</span>
       </div>
