@@ -25,14 +25,14 @@ const Forecast = ({ forecast }) => {
   if (!forecast) return null;
   return (
     <div className="my-4">
-      <h3 className="text-lg font-semibold mb-2">5-Day Forecast</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
+      <h3 className="text-lg sm:text-xl font-semibold mb-2 text-center">5-Day Forecast</h3>
+      <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
         {forecast.map((day, idx) => (
-          <div key={idx} className="bg-white shadow rounded-lg p-4 flex flex-col items-center transition-transform hover:scale-105">
+          <div key={idx} className="bg-white shadow rounded-lg p-3 sm:p-4 flex flex-col items-center transition-transform hover:scale-105">
             <div>{getWeatherIcon(day.main)}</div>
-            <div className="font-semibold text-gray-700">{day.date}</div>
-            <div className="text-sm text-gray-500">Min: {day.temp_min !== undefined ? Math.round(day.temp_min) : "-"}{tempUnit}</div>
-            <div className="text-sm text-gray-500">Max: {day.temp_max !== undefined ? Math.round(day.temp_max) : "-"}{tempUnit}</div>
+            <div className="font-semibold text-gray-700 text-sm sm:text-base">{day.date}</div>
+            <div className="text-xs sm:text-sm text-gray-500">Min: {day.temp_min !== undefined ? Math.round(day.temp_min) : "-"}{tempUnit}</div>
+            <div className="text-xs sm:text-sm text-gray-500">Max: {day.temp_max !== undefined ? Math.round(day.temp_max) : "-"}{tempUnit}</div>
           </div>
         ))}
       </div>
