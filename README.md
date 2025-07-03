@@ -1,12 +1,63 @@
-# React + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fully responsive Weather App built with React and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Search by City or Geolocation**: Enter a city or use your current location to get weather data.
+- **Current Weather Display**: Shows temperature, weather condition, humidity, wind speed, and more.
+- **5-Day Forecast**: Daily forecast with min/max temperature and weather icons.
+- **Air Quality Index (AQI)**: Displays AQI if available.
+- **Weather Alerts**: Shows severe weather alerts if provided by the API.
+- **Forecast Chart**: Visualizes temperature trends with a chart.
+- **Unit Toggle**: Switch between Celsius (°C) and Fahrenheit (°F) with a modern toggle switch.
+- **Responsive Design**: Works beautifully on mobile, tablet, and desktop.
+- **Weather ChatBot**: Ask any weather-related question! Powered by OpenRouter AI (free model), with a floating robot icon to open/close the chat.
 
-## Expanding the ESLint configuration
+## Tech Stack
+- React + Vite
+- Tailwind CSS
+- Axios
+- Recharts
+- OpenWeatherMap API
+- OpenRouter AI (for chatbot)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Setup & Installation
+
+1. **Clone the repository**
+   ```sh
+   git clone <your-repo-url>
+   cd WeatherApp
+   ```
+
+2. **Install dependencies**
+   ```sh
+   npm install
+   ```
+
+3. **Set up your `.env` file in the project root:**
+   ```env
+   VITE_WEATHER_KEY=your_openweathermap_api_key
+   VITE_OPENROUTER_API_KEY=your_openrouter_api_key
+   ```
+   - Get your [OpenWeatherMap API key](https://openweathermap.org/api)
+   - Get your [OpenRouter API key](https://openrouter.ai/)
+
+4. **Run the app**
+   ```sh
+   npm run dev
+   ```
+   The app will be available at `http://localhost:5173` by default.
+
+## Usage
+- Search for any city or use your location.
+- Toggle between °C and °F.
+- Click the robot icon to chat with the AI about weather questions.
+- Fully responsive for all devices.
+
+## Screenshots
+_Add your screenshots here_
+
+---
+
+**Enjoy your modern Weather App!**
